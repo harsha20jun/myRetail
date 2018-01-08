@@ -14,13 +14,13 @@ Build an application that performs the following actions:
 •	BONUS: Accepts an HTTP PUT request at the same path (/products/{id}), containing a JSON request body similar to the GET response, and updates the product’s price in the data store.  
 Solution:
 
-## Tech Stack:
+#### Tech Stack:
 Springboot , Maven, Mockito/Junit,RestTemplate,Embedded MongoDB,swagger2.
 
-## Github Repository:
+#### Github Repository:
  Download project from the following git repository
 https://github.com/rohitdec01/myRetail
 
-##To run the application:
+#### To run the application:
 Download the project. Navigate to  the project folder and run mvn spring-boot:run
 Read the API documentation in Swagger2 (run http://localhost:8081/swagger-ui.html on the browser)
