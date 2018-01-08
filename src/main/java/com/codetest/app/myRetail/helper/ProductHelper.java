@@ -2,6 +2,7 @@ package com.codetest.app.myRetail.helper;
 
 import org.springframework.stereotype.Component;
 
+import com.codetest.app.myRetail.entity.CurrentPrice;
 import com.codetest.app.myRetail.entity.Product;
 import com.codetest.app.myRetail.exception.MyRetailException;
 import com.codetest.app.myRetail.vo.response.CurrentPriceVO;
@@ -29,6 +30,16 @@ public class ProductHelper {
 			throw new MyRetailException();
 		}
 		return prodResponse;
+	}
+
+	public Product getProductDomainObject(ProductVO productVO) {
+		Product product = new Product();
+		CurrentPrice currentPrice = new CurrentPrice();
+		product.setProductId(productVO.getProductId());
+		currentPrice.setCurrencyCode(productVO.getCurrentprice().getCurrencyCode());
+		currentPrice.setValue(productVO.getCurrentprice().getValue());
+		product.setCurrentPrice(currentPrice);
+		return product;
 	}
 
 

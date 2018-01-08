@@ -5,6 +5,8 @@ package com.codetest.app.myRetail.remoteHttp;
 
 
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ import com.codetest.app.myRetail.exception.MyRetailException;
 @Component
 public class ConnectHttpClient {
 
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private RestTemplate restTemplate;
 
@@ -35,6 +39,7 @@ public class ConnectHttpClient {
 	public String getProductNameByRemoteCall(String productId) throws MyRetailException{
 
 		try {
+			logger.info("Inside ConnectHttpClient().getProductNameByRemoteCall");
 			UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiEndpointURL+product_URI+productId).queryParam("excludes","taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics");
 
 			// Send request with GET method, and Headers.	
@@ -42,20 +47,22 @@ public class ConnectHttpClient {
 
 			if(jsonResponse != null) {
 				JSONObject jsonObject=new JSONObject(jsonResponse);
+				logger.debug("JSON Response from Remote Client  :" + jsonResponse.toString());
 
 				if(jsonObject.getJSONObject("product").getJSONObject("item").getJSONObject("product_description") != null) {
 					JSONObject productDescription = jsonObject.getJSONObject("product").getJSONObject("item").getJSONObject("product_description");
 					productName = productDescription.getString("title");
 				}
 				else {
+					logger.debug("Product title JSON value Unavailable in Product API");
 					throw new MyRetailException(HttpStatus.NO_CONTENT.value() ,"The title does not exists for the product" );
 				}
 			}
 		} catch (RestClientException e) {
+			logger.debug("Product API unavailable  :" + apiEndpointURL+product_URI + productId);
 			throw new MyRetailException(HttpStatus.NOT_FOUND.value() ,"Product Remote API unavailable");
 		}
 		return productName;
 	}
-
 
 }
