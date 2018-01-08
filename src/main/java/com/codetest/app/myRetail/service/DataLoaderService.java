@@ -24,7 +24,7 @@ import com.codetest.app.myRetail.repository.ProductRepository;
 public class DataLoaderService {
 
 	@Autowired
-	ProductRepository productRepository;
+	private ProductRepository productRepository;
 
 	//constructor
 	public DataLoaderService() {};

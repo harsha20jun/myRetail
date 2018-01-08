@@ -35,7 +35,8 @@ public class ConnectHttpClient {
 	private String product_URI = "/v2/pdp/tcin/";
 	private String productName= null;
 
-
+	public ConnectHttpClient() {}
+	
 	public String getProductNameByRemoteCall(String productId) throws MyRetailException{
 
 		try {

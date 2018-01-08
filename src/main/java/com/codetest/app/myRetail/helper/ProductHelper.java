@@ -11,7 +11,12 @@ import com.codetest.app.myRetail.vo.response.ProductVO;
 @Component
 public class ProductHelper {
 
-
+	/**
+	 * 
+	 */
+	public ProductHelper() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public ProductVO generateProductResponse(Product product, String productName) throws MyRetailException {
 
