@@ -24,3 +24,6 @@ https://github.com/rohitdec01/myRetail
 #### To run the application:
 Download the project. Navigate to  the project folder and run mvn spring-boot:run
 Read the API documentation in Swagger2 (run http://localhost:8081/swagger-ui.html on the browser)
+
+##Heroku application hosting.
+The app is currently hosted in Heroku.
