@@ -19,7 +19,7 @@ Springboot , Maven, Mockito/Junit,RestTemplate,Embedded MongoDB,swagger2.
 
 #### Github Repository:
  Download project from the following git repository
-https://github.com/rohitdec01/myRetail
+https://github.com/cranganathan-infy/myRetail
 
 #### To run the application:
 Download the project. Navigate to  the project folder and run mvn spring-boot:run
