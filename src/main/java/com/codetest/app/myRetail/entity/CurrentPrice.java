@@ -22,6 +22,19 @@ public class CurrentPrice {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
+
+	/**
+	 * @param value
+	 * @param currencyCode
+	 */
+	public CurrentPrice(Double value, String currencyCode) {
+		this.value = value;
+		this.currencyCode = currencyCode;
+	}
+
+	public CurrentPrice() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 

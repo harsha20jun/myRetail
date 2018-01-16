@@ -66,8 +66,7 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20170516</version>
-		</dependency>
+			</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
